@@ -5,6 +5,7 @@ import numpy as np
 import cv2
 import time
 import threading
+from datetime import datetime
 
 
 class RecordingThread:
@@ -22,8 +23,8 @@ class RecordingThread:
         screen_dimensions = {'top': 0, 'left': 0,
                              'width': self.screen_width, 'height': self.screen_height}
         sct = mss()
-        out = cv2.VideoWriter('output.avi', cv2.VideoWriter_fourcc(
-            'M', 'J', 'P', 'G'), 10, (self.screen_width, self.screen_height))
+        filename = datetime.now().strftime("%m-%d-%Y_%H-%M-%S") + '.avi'
+        out = cv2.VideoWriter(filename, cv2.VideoWriter_fourcc(*'MJPG'), 10, (self.screen_width, self.screen_height))
         last_frame = None
         frames_without_moving = 0
 
