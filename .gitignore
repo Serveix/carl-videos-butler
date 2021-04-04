@@ -1,0 +1,6 @@
+others/
+__pycache__/
+venv/
+.vscode/
+.idea/
+output.avi
